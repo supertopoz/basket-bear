@@ -11,7 +11,9 @@
     "local-test": "NODE_ENV=test jest --watch",
     "windows-test": ".NODE_ENV=test& jest --watch --no-cache",
     "prod-test": "docker build -t basket-dev . && docker run -it -p 8000:8000 basket-dev npm test",
-    "postinstall": "webpack -p --config webpack.prod.js --progress"
+    "postinstall": "webpack -p --config webpack.prod.js --progress",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -63,7 +65,8 @@
     "react-router-dom": "^4.2.2",
     "web-push": "^3.2.5",
     "webpack-hot-middleware": "^2.21.0",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.19",
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -98,5 +101,6 @@
     "webpack": "^3.6.0",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-merge": "^4.1.0"
-  }
+  },
+  "snyk": true
 }
